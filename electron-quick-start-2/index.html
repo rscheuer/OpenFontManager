@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="css/photon.css">
+    
+    
+    <script type="text/javascript">
+    	function makeUL(array) {
+    	    // Create the list element:
+    	    var table = document.createElement('tbody');
+    	
+    	    for(var i = 0; i < array.length; i++) {
+    	        // Create tr
+    	        var tr = document.createElement('tr');
+    	        // Create tb
+    	        var td = document.createElement('td');
+    	        
+    	        // Set its contents:
+    	        name = array[i].toString();
+    	        name = name.replace(/"/g,"");
+    	        td.appendChild(document.createTextNode(name));
+    	        td.style.fontFamily = "'"+name+"'";
+    	
+    	        // Add it to the list:
+    	        tr.appendChild(td);
+    	        table.appendChild(tr);
+    	    }
+    	
+    	    // Finally, return the constructed list:
+    	    return table;
+    	}
+    	
+    	// Add the contents of options[0] to #foo:
+    	//document.getElementById('foo').appendChild(makeUL(options[1]));
+    	  
+    	//fonts
+    	const fontList = require('font-list')
+    	
+    	
+    	fontList.getFonts()
+    	  .then(fonts => {
+    	    document.getElementById('foo').appendChild(makeUL(fonts));
+    	    console.log(fonts);
+    	  })
+    	  .catch(err => {
+    	    console.log(err)
+    	  })
+    	  
+    	
+    </script>
+  </head>
+  <body>
+    <div class="window">
+    	<!-- .toolbar-header sits at the top of your app -->
+    	<header class="toolbar toolbar-header">
+    	  <h1 class="title">Photon</h1>
+    	</header>
+    	<!-- Your app's content goes inside .window-content -->
+    	      <div class="window-content">
+    	        <div class="pane-group">
+    	          <div class="pane pane-sm sidebar">
+    	            <nav class="nav-group">
+    	              <h5 class="nav-group-title">Favorites</h5>
+    	              <span class="nav-group-item active">
+    	                <span class="icon icon-home"></span>
+    	                All Fonts
+    	              </span>
+    	              <span class="nav-group-item">
+    	                <span class="icon icon-light-up"></span>
+    	                Serif
+    	              </span>
+    	              <span class="nav-group-item">
+    	                <span class="icon icon-download"></span>
+    	                Sans Serif
+    	              </span>
+    	              <span class="nav-group-item">
+    	                <span class="icon icon-folder"></span>
+    	                Script
+    	              </span>
+    	              <span class="nav-group-item">
+    	                <span class="icon icon-window"></span>
+    	                Applications
+    	              </span>
+    	              <span class="nav-group-item">
+    	                <span class="icon icon-signal"></span>
+    	                AirDrop
+    	              </span>
+    	              <span class="nav-group-item">
+    	                <span class="icon icon-monitor"></span>
+    	                Desktop
+    	              </span>
+    	            </nav>
+    	          </div>
+    	
+    	          <div class="pane">
+    	            <table class="table-striped" id=foo>
+    	              <thead>
+    	                <tr>
+    	                  <th>Name</th>
+    	                  <th>Kind</th>
+    	                  <th>Date Modified</th>
+    	                  <th>Author</th>
+    	                </tr>
+    	              </thead>
+    	              <tbody>
+    	                <tr>
+    	                  <td>bars.scss</td>
+    	                  <td>Document</td>
+    	                  <td>Oct 13, 2015</td>
+    	                  <!--<td>connors</td>-->
+    	                </tr>
+    	                <tr>
+    	                  <td>navs.scss</td>
+    	                  <td>Document</td>
+    	                  <td>Oct 13, 2015</td>
+    	                  <td>connors</td>
+    	                </tr>
+    	              </tbody>
+    	            </table>
+    	          </div>
+    	        </div>
+    	      </div>
+    </div>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+      //require('./test2.js')
+    </script>
+  </body>
+</html>

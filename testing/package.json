@@ -20,7 +20,6 @@
     "electron": "~1.7.8"
   },
   "dependencies": {
-    "font-list": "^1.1.0",
     "font-manager": "^0.2.2"
   }
 }
