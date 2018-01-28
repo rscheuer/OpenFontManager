@@ -1,0 +1,2 @@
+# OpenFontManager
+Organize your type!
