@@ -1,27 +1,26 @@
-// TEST ARRAY
-// kinda sick
-var options = [
-        set0 = ['Option 1','Option 2'],
-        set1 = ['First Option','Second Option','Third Option']
-    ];
-
 function makeUL(array) {
     // Create the list element:
-    var list = document.createElement('ul');
+    var table = document.createElement('tbody');
 
     for(var i = 0; i < array.length; i++) {
-        // Create the list item:
-        var item = document.createElement('li');
-
+        // Create tr
+        var tr = document.createElement('tr');
+        // Create tb
+        var td = document.createElement('td');
+        
         // Set its contents:
-        item.appendChild(document.createTextNode(array[i]));
+        name = array[i].toString();
+        name = name.replace(/"/g,"");
+        td.appendChild(document.createTextNode(name));
+        td.style.fontFamily = "'"+name+"'";
 
         // Add it to the list:
-        list.appendChild(item);
+        tr.appendChild(td);
+        table.appendChild(tr);
     }
 
     // Finally, return the constructed list:
-    return list;
+    return table;
 }
 
 // Add the contents of options[0] to #foo:
@@ -30,13 +29,13 @@ function makeUL(array) {
 //fonts
 const fontList = require('font-list')
 
+
 fontList.getFonts()
   .then(fonts => {
     document.getElementById('foo').appendChild(makeUL(fonts));
-    //console.log(fonts)
+    console.log(fonts);
   })
   .catch(err => {
     console.log(err)
   })
-  
   
